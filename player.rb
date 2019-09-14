@@ -6,7 +6,7 @@ class Player
 
     def get_move_wish
         display_prompt_and_get_command
-        extract_move_wish_from_command
+        @move_wish
     end
 
     def display_prompt_and_get_command
