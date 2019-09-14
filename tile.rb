@@ -17,4 +17,8 @@ class Tile
         end
     end
 
+    def opened_tile?
+        visible && !flagged
+    end
+
 end
