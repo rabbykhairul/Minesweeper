@@ -60,4 +60,8 @@ class Game
     def wish_to_flag_a_tile?
         move_wish == 'f'
     end
+
+    def wish_to_unflag_a_tile?
+        move_wish == 'u'
+    end
 end
