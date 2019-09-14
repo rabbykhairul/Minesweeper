@@ -88,7 +88,7 @@ class Tile
     end
 
     def count_fringe_and_set_value(grid)
-        fringe_count = Tile.count_adjacent_bomb(self, grid)
+        fringe_count = Tile.count_adjacent_bombs(self, grid)
         self.val = fringe_count.to_s
     end
 end
