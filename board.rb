@@ -88,4 +88,10 @@ class Board
     def increase_open_tiles_count
         self.opened_tiles_count += 1
     end
+
+    def reveal_tile(position)
+        row, col = position
+        tile = grid[row][col]
+        tile.reveal(grid)
+    end
 end
