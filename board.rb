@@ -1,16 +1,17 @@
 require_relative "./tile.rb"
 
 class Board
+    # Gives ten random positions inside the board grid
     def self.generate_random_positions
         positions_arr = []
 
         while positions_arr.length < 10
             row, col = rand(0...9), rand(0...9)
             position = [ row, col ]
-            position_arr << position unless positions_arr.include?(position)
+            positions_arr << position unless positions_arr.include?(position)
         end
 
-        position_arr
+        positions_arr
     end
 
     def initialize
