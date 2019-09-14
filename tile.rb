@@ -63,6 +63,8 @@ class Tile
     def to_s
         if opened_tile?
             val
+        elsif flagged
+            'f'
         else
             '*'
         end
