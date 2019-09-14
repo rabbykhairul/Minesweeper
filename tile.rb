@@ -86,4 +86,9 @@ class Tile
         mark_as_visible
         # if has_any_adjacent_bomb?(self, grid)
     end
+
+    def count_fringe_and_set_value(grid)
+        fringe_count = count_adjacent_bomb(self, grid)
+        self.val = fringe_count.to_s
+    end
 end
