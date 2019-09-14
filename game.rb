@@ -52,6 +52,10 @@ class Game
             unflag_tile_at_move_position
         end
     end
+
+    def reveal_tile_at_move_position
+        board.reveal_tile(move_position)
+    end
     
     def wish_to_reveal_a_tile?
         move_wish == 'r'
