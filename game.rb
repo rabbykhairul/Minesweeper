@@ -6,7 +6,11 @@ class Game
 
     def initialize
         @board = Board.new
-        @move_position
+        @move_position = a_random_bomb_free_tile_position
+    end
+
+    def a_random_bomb_free_tile_position
+        board.a_random_bomb_free_tile_position
     end
 
     def game_over?
