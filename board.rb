@@ -14,6 +14,8 @@ class Board
         positions_arr
     end
 
+    attr_accessor :grid, :opened_tiles_count
+
     def initialize
         @grid = populate_grid
         @opened_tiles_count = 0
@@ -42,4 +44,6 @@ class Board
             grid[row][col] = Tile.new(true)
         end
     end
+
+    
 end
