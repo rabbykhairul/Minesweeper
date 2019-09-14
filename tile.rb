@@ -50,7 +50,7 @@ class Tile
     end
 
     attr_reader :bomb
-    attr_accessor :visible, :flagged, :val :revealed
+    attr_accessor :visible, :flagged, :val, :revealed
 
     def initialize(bomb_indicator)
         @bomb = bomb_indicator
@@ -114,6 +114,9 @@ class Tile
 
     def reveal_all_adjacent_neighbors(grid)
         neighbor_tiles = Tile.get_adjacent_tiles(self, grid)
-        neighbor_tiles.each { |neighbor_tile| neighbor_tile.reveal(grid) }
+
+        neighbor_tiles.each do |neighbor_tile|
+            neighbor_tile.reveal(grid) unless neighbor_tile.revealed
+        end
     end
 end
