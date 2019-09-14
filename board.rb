@@ -21,5 +21,12 @@ class Board
         grid
     end
 
-    
+    def place_bombs_on_the_grid!(grid)
+        bomb_positions = Board.generate_random_positions
+        
+        bomb_positions.each do |position|
+            row, col = position
+            grid[row][col] = Tile.new(true)
+        end
+    end
 end
