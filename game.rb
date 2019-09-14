@@ -3,6 +3,15 @@ require_relative "./player.rb"
 require_relative "./game_saver_loader.rb"
 
 class Game
+    
+    def self.resume_saved_game
+        game_loader = Game_saver_and_loader.new
+        saved_game = game_loader.load_game
+        saved_game.move_position = saved_game.a_random_bomb_free_tile_position
+        saved_game
+    end
+
+
     attr_reader :board, :player, :game_memory
     attr_accessor :move_position, :move_wish, :game_save
 
