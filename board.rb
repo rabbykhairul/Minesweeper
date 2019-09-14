@@ -78,4 +78,10 @@ class Board
         end
         puts
     end
+
+    def stepped_on_a_bomb?(position)
+        row, col = position
+        tile = grid[row][col]
+        tile.is_a_bomb?
+    end
 end
