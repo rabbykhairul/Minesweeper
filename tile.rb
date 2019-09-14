@@ -9,5 +9,11 @@ class Tile
         @val = bomb_indicator ? 'B' : '_'
     end
 
-    
+    def to_s
+        if opened_tile?
+            val
+        else
+            '*'
+        end
+    end
 end
