@@ -1,13 +1,15 @@
 require_relative "./board.rb"
+require_relative "./player.rb"
 
 class Game
-    attr_reader :board
+    attr_reader :board, :player
     attr_accessor :move_position, :move_wish
 
     def initialize
         @board = Board.new
         @move_position = a_random_bomb_free_tile_position
         @move_wish
+        @player = Player.new
     end
 
     def a_random_bomb_free_tile_position
