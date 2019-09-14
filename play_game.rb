@@ -17,7 +17,15 @@ sleep(1)
 if choice == 1
     game = Game.new
 else
-    game = Game.resume_saved_game
+    begin
+        game = Game.resume_saved_game
+    rescue => error
+        puts
+        puts "Sorry!"
+        puts "No previously saved game -:("
+        puts
+        return nil
+    end
 end
 
 game.start_game
