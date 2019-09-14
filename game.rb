@@ -37,4 +37,9 @@ class Game
         move_position = player.get_move_position
         execute_move_wish
     end
+
+    def display_board
+        system("clear")
+        board.render
+    end
 end
