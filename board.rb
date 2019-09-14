@@ -98,4 +98,18 @@ class Board
     def opened_all_bomb_free_tiles?
         opened_tiles_count == 71
     end
+
+    def a_random_bomb_free_tile_position
+        until false
+            row, col = rand(0...9), rand(0...9)
+            position = [ row, col ]
+            return position unless cheat_value(position) == "B"
+        end
+    end
+
+    def cheat_value(position)
+        row, col = position
+        tile = grid[row][col]
+        tile.to_s_cheat
+    end
 end
