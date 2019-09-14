@@ -84,4 +84,8 @@ class Board
         tile = grid[row][col]
         tile.is_a_bomb?
     end
+
+    def increase_open_tiles_count
+        self.opened_tiles_count += 1
+    end
 end
