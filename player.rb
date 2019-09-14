@@ -9,6 +9,10 @@ class Player
         @move_wish
     end
 
+    def get_move_position
+        @move_position
+    end
+
     def display_prompt_and_get_command
         puts "Use `r` to reveal a tile"
         puts "Use `f` to flag a tile"
