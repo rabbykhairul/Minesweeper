@@ -24,4 +24,9 @@ class Game
     def opened_all_bomb_free_tiles?
         board.opened_all_bomb_free_tiles?
     end
+
+    def won?
+        return true if opened_all_bomb_free_tiles?
+        false
+    end
 end
