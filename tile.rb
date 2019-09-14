@@ -94,7 +94,10 @@ class Tile
     def reveal(grid)
         mark_as_visible
         if Tile.has_any_adjacent_bomb?(self, grid)
-            count_fringe_and_set_value
+            count_fringe_and_set_value(grid)
+            return
+        else
+            reveal_all_adjacent_neighbors(grid)
         end
     end
 
@@ -105,6 +108,6 @@ class Tile
 
     def reveal_all_adjacent_neighbors(grid)
         neighbor_tiles = Tile.get_adjacent_tiles(self, grid)
-        neighbor_tiles.each { |neighbor_tile| neighbor_tile.reveal }
+        neighbor_tiles.each { |neighbor_tile| neighbor_tile.reveal(grid) }
     end
 end
