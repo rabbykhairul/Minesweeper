@@ -45,5 +45,9 @@ class Board
         end
     end
 
-    
+    def [](position)
+        row, col = position
+        tile = grid[row][col]
+        tile.to_s
+    end
 end
