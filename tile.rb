@@ -39,6 +39,11 @@ class Tile
         adjacent_tiles
     end
 
+    def self.has_any_adjacent_bomb?(tile, grid)
+        adjacent_tiles = Tile.get_adjacent_tiles(tile, grid)
+        adjacent_tiles.any? { |adjacent_tile| adjacent_tile.is_a_bomb? }
+    end
+
     attr_reader :bomb
     attr_accessor :visible, :flagged, :val
 
