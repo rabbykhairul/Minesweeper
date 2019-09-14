@@ -4,7 +4,9 @@ class Tile
 
     def initialize(bomb_indicator)
         @bomb = bomb_indicator
-        @visible = false
+        @visibility = false
         @flagged = false
     end
+
+    
 end
