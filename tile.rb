@@ -67,6 +67,10 @@ class Tile
         end
     end
 
+    def to_s_cheat
+        val
+    end
+
     def opened_tile?
         visible && !flagged
     end
