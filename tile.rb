@@ -1,6 +1,6 @@
 class Tile
     attr_reader :bomb
-    attr_accessor :visible
+    attr_accessor :visibility, :flagged, :val
 
     def initialize(bomb_indicator)
         @bomb = bomb_indicator
@@ -8,4 +8,6 @@ class Tile
         @flagged = false
         @val = bomb_indicator ? 'B' : '_'
     end
+
+    
 end
