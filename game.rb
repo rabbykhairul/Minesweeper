@@ -42,4 +42,14 @@ class Game
         system("clear")
         board.render
     end
+
+    def execute_move_wish
+        if wish_to_reveal_a_tile?
+            reveal_tile_at_move_position
+        elsif wish_to_flag_a_tile?
+            flag_tile_at_move_position
+        elsif wish_to_unflag_a_tile?
+            unflag_tile_at_move_position
+        end
+    end
 end
