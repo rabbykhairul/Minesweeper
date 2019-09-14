@@ -56,4 +56,8 @@ class Game
     def wish_to_reveal_a_tile?
         move_wish == 'r'
     end
+
+    def wish_to_flag_a_tile?
+        move_wish == 'f'
+    end
 end
