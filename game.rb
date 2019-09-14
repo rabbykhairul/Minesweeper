@@ -39,8 +39,8 @@ class Game
 
     def play_turn
         display_board
-        move_wish = player.get_move_wish
-        move_position = player.get_move_position
+        self.move_wish = player.get_move_wish
+        self.move_position = player.get_move_position
         execute_move_wish
     end
 
@@ -82,14 +82,14 @@ class Game
     end
     
     def wish_to_reveal_a_tile?
-        move_wish == 'r'
+        self.move_wish == 'r'
     end
 
     def wish_to_flag_a_tile?
-        move_wish == 'f'
+        self.move_wish == 'f'
     end
 
     def wish_to_unflag_a_tile?
-        move_wish == 'u'
+        self.move_wish == 'u'
     end
 end
