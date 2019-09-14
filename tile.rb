@@ -89,7 +89,7 @@ class Tile
 
     def reveal(grid)
         mark_as_visible
-        if has_any_adjacent_bomb?(self, grid)
+        if self.has_any_adjacent_bomb?(self, grid)
             count_fringe_and_set_value
         end
     end
