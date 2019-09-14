@@ -23,4 +23,9 @@ class Player
         @move_wish = input_command[0].downcase
         @move_position = extract_position_value(input_command[1..-1])
     end
+
+    def extract_position_value(position_string)
+        position_arr = position_string.split(",")
+        position_arr.map(&:to_i)
+    end
 end
