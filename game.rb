@@ -39,7 +39,7 @@ class Game
 
     def play_turn
         display_board
-        move_wish = player.get_wish
+        move_wish = player.get_move_wish
         move_position = player.get_move_position
         execute_move_wish
     end
