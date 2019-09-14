@@ -11,6 +11,34 @@ class Tile
         end
     end
 
+    def self.get_adjacent_tiles(tile, grid)
+        tile_positon = Tile.get_tile_position(tile, grid)
+        tile_row, tile_col = tile_positon
+
+        deltas = [
+            [0,1], 
+            [0,-1], 
+            [1,0], 
+            [-1,0], 
+            [1,1], 
+            [-1,1],
+            [1, -1],
+            [-1,-1]
+        ]
+
+        adjacent_tiles = []
+
+        deltas.each do |delta|
+            shift_row, shift_col = delta
+            adjacent_row, adjacent_col = tile_row + shift_row, tile_col + shift_col
+            if Tile.within_range?(adjacent_row, adjacent_col)
+                adjacent_tiles << grid[adjacent_row][adjacent_col]
+            end
+        end
+
+        adjacent_tiles
+    end
+
     attr_reader :bomb
     attr_accessor :visible, :flagged, :val
 
