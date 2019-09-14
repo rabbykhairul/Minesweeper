@@ -50,4 +50,14 @@ class Board
         tile = grid[row][col]
         tile.to_s
     end
+
+    # Gives all the tile values of a single row in string format separated by space
+    def build_line_from_row(row_num)
+        tile_values = []
+        (0...9).each do |col_num|
+            position = [ row_num, col_num ]
+            tile_values << self[position]
+        end
+        tile_values.join(" ")
+    end
 end
