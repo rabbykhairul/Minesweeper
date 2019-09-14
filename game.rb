@@ -1,8 +1,9 @@
 require_relative "./board.rb"
 require_relative "./player.rb"
+require_relative "./game_saver_loader.rb"
 
 class Game
-    attr_reader :board, :player
+    attr_reader :board, :player, :game_memory
     attr_accessor :move_position, :move_wish
 
     def initialize
@@ -10,6 +11,7 @@ class Game
         @move_position = a_random_bomb_free_tile_position
         @move_wish
         @player = Player.new
+        @game_memory = Game_saver_and_loader.new
     end
 
     def a_random_bomb_free_tile_position
@@ -66,7 +68,17 @@ class Game
             flag_tile_at_move_position
         elsif wish_to_unflag_a_tile?
             unflag_tile_at_move_position
+        elsif wish_to_save_game_and_quit?
+            save_game_and_quit
         end
+    end
+
+    def wish_to_save_game_and_quit?
+        self.move_wish == 's'
+    end
+
+    def save_game_and_quit
+        game_memory.save_game(self)
     end
 
     def reveal_tile_at_move_position
