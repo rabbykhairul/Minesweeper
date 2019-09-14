@@ -60,4 +60,11 @@ class Board
         end
         tile_values.join(" ")
     end
+
+    # Gives all the tile values of each grid row in string format for print
+    def get_grid_lines
+        grid_lines = []
+        (0...9).each { |row_num| grid_lines << build_line_from_row(row_num) }
+        grid_lines
+    end
 end
