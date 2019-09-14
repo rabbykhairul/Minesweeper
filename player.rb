@@ -17,6 +17,7 @@ class Player
         puts "Use `r` to reveal a tile"
         puts "Use `f` to flag a tile"
         puts "Use `u` to unflag a flagged tile"
+        puts "Use `s` to save the current game and exit"
         puts
         print "Enter tile position (e.g: r2,3): "
         receive_user_input_and_process_it
