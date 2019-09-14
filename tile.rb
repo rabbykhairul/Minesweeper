@@ -21,4 +21,7 @@ class Tile
         visible && !flagged
     end
 
+    def set_flag
+        self.flagged = true
+    end
 end
