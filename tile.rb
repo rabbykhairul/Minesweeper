@@ -24,4 +24,8 @@ class Tile
     def set_flag
         self.flagged = true
     end
+
+    def unflag
+        self.flagged = false
+    end
 end
