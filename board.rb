@@ -14,11 +14,11 @@ class Board
         positions_arr
     end
 
-    attr_accessor :grid, :opened_tiles_count, :unflagged_tiles
+    attr_accessor :grid, :opened_tiles, :unflagged_tiles
 
     def initialize
         @grid = populate_grid
-        @opened_tiles_count = 0
+        @opened_tiles = []
         @unflagged_tiles = []
     end
 
@@ -103,14 +103,26 @@ class Board
         end
     end
 
-    def increase_open_tiles_count
-        self.opened_tiles_count += 1
+    def update_opened_tiles_list
+        (0...9).each do |row|
+            (0...9).each do |col|
+                tile = grid[row][col]
+                if opened_and_bomb_free?(tile) && !opened_tiles.include?(tile)
+                    opened_tiles << tile
+                end
+            end
+        end
+    end
+
+    def opened_and_bomb_free?(tile)
+        !is_a_bomb?(tile) && !flagged(tile) && tile.revealed
     end
 
     def reveal_tile(position)
         row, col = position
         tile = grid[row][col]
         tile.try_reveal(grid)
+        update_opened_tiles_list
     end
 
     def flag_tile(position)
@@ -127,7 +139,7 @@ class Board
     end
 
     def opened_all_bomb_free_tiles?
-        opened_tiles_count == 71
+        opened_tiles.length == 71
     end
 
     def a_random_bomb_free_tile_position
