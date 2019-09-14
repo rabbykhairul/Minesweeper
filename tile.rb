@@ -44,7 +44,7 @@ class Tile
         adjacent_tiles.any? { |adjacent_tile| adjacent_tile.is_a_bomb? }
     end
 
-    def count_adjacent_bombs(tile, grid)
+    def self.count_adjacent_bombs(tile, grid)
         adjacent_tiles = Tile.get_adjacent_tiles(tile, grid)
         adjacent_tiles.count { |adjacent_tile| adjacent_tile.is_a_bomb? }
     end
