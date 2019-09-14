@@ -94,4 +94,8 @@ class Board
         tile = grid[row][col]
         tile.reveal(grid)
     end
+
+    def opened_all_bomb_free_tiles?
+        opened_tiles_count == 71
+    end
 end
