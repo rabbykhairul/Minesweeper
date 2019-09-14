@@ -31,6 +31,10 @@ class Game
         false
     end
 
+    def start_game
+        play_turn until game_over?
+    end
+
     def play_turn
         display_board
         move_wish = player.get_wish
