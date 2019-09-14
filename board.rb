@@ -67,4 +67,15 @@ class Board
         (0...9).each { |row_num| grid_lines << build_line_from_row(row_num) }
         grid_lines
     end
+
+    # Renders the current state of the board to the screen
+    def render
+        grid_lines = get_grid_lines
+
+        puts "  0 1 2 3 4 5 6 7 8"
+        grid_lines.each_with_index do |grid_line, idx|
+            puts "#{idx} #{grid_line}"
+        end
+        puts
+    end
 end
