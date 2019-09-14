@@ -1,4 +1,8 @@
 class Tile
+    def self.within_range?(row, col)
+        row.between?(0,8) && col.between?(0,8)
+    end
+
     attr_reader :bomb
     attr_accessor :visible, :flagged, :val
 
@@ -36,4 +40,6 @@ class Tile
     def mark_as_visible
         self.visible = true
     end
+
+    
 end
