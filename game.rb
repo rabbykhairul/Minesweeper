@@ -4,7 +4,7 @@ require_relative "./game_saver_loader.rb"
 
 class Game
     attr_reader :board, :player, :game_memory
-    attr_accessor :move_position, :move_wish
+    attr_accessor :move_position, :move_wish, :game_save
 
     def initialize
         @board = Board.new
@@ -12,6 +12,7 @@ class Game
         @move_wish
         @player = Player.new
         @game_memory = Game_saver_and_loader.new
+        @game_save = false
     end
 
     def a_random_bomb_free_tile_position
@@ -36,7 +37,11 @@ class Game
     end
 
     def start_game
-        play_turn until game_over?
+        play_turn until game_is_saved? || game_over?
+    end
+
+    def game_is_saved?
+        self.game_save
     end
 
     def play_turn
@@ -49,6 +54,23 @@ class Game
     def display_board
         system("clear")
         board.render
+    end
+
+    def display_appropriate_message
+        if game_is_saved?
+            notify_player_that_game_is_saved
+        elsif game_over?
+            display_game_over_message
+        end
+    end
+
+    def notify_player_that_game_is_saved
+        system("clear")
+        puts
+        puts "===================================================="
+        puts "Game is saved. Come back anytime and resume playing!"
+        puts "===================================================="
+        puts
     end
 
     def display_game_over_message
@@ -79,6 +101,7 @@ class Game
 
     def save_game_and_quit
         game_memory.save_game(self)
+        self.game_save = true
     end
 
     def reveal_tile_at_move_position
