@@ -32,4 +32,8 @@ class Tile
     def is_a_bomb?
         self.bomb
     end
+
+    def mark_as_visible
+        self.visible = true
+    end
 end
