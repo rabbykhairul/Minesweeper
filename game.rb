@@ -18,6 +18,6 @@ class Game
     end
 
     def opened_all_bomb_free_tiles?
-        board.openen_all_bomb_free_tiles?
+        board.opened_all_bomb_free_tiles?
     end
 end
