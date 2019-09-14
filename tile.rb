@@ -96,6 +96,19 @@ class Tile
         self.revealed = true
     end
 
+    def try_reveal(grid)
+        if is_a_bomb?
+            reveal_the_bomb
+        else
+            reveal(grid)
+        end
+    end
+
+    def reveal_the_bomb
+        mark_as_visible
+        mark_as_revealed
+    end
+
     def reveal(grid)
         mark_as_visible
         mark_as_revealed

@@ -92,7 +92,7 @@ class Board
     def reveal_tile(position)
         row, col = position
         tile = grid[row][col]
-        tile.reveal(grid)
+        tile.try_reveal(grid)
     end
 
     def flag_tile(position)
