@@ -43,6 +43,16 @@ class Game
         board.render
     end
 
+    def display_game_over_message
+        system("clear")
+        board.render
+        if won?
+            puts "Great job! You cleared all mines"
+        else
+            puts "Boom! You stepped on a land mine"
+        end
+    end
+
     def execute_move_wish
         if wish_to_reveal_a_tile?
             reveal_tile_at_move_position
