@@ -1,6 +1,18 @@
 require_relative "./tile.rb"
 
 class Board
+    def self.generate_random_positions
+        positions_arr = []
+
+        while positions_arr.length < 10
+            row, col = rand(0...9), rand(0...9)
+            position = [ row, col ]
+            position_arr << position unless positions_arr.include?(position)
+        end
+
+        position_arr
+    end
+
     def initialize
         @grid = populate_grid
         @opened_tiles_count = 0
