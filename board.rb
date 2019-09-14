@@ -1,6 +1,25 @@
+require_relative "./tile.rb"
+
 class Board
     def initialize
-        @grid
+        @grid = populate_grid
         @opened_tiles_count = 0
     end
+
+    def populate_grid
+        grid = Array.new(9) { Array.new(9) }
+
+        # assign empty tile instance without bomb on each grid squares
+        (0...9).each do |row|
+            (0...9).each do |col|
+                grid[row][col] = Tile.new(false)
+            end
+        end
+
+        place_bombs_on_the_grid!(grid)
+
+        grid
+    end
+
+    
 end
