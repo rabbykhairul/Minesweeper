@@ -28,4 +28,8 @@ class Tile
     def unflag
         self.flagged = false
     end
+
+    def is_a_bomb?
+        self.bomb
+    end
 end
