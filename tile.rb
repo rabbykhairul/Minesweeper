@@ -92,6 +92,10 @@ class Tile
         self.visible = true
     end
 
+    def mark_as_revealed
+        self.revealed = true
+    end
+
     def reveal(grid)
         mark_as_visible
         if Tile.has_any_adjacent_bomb?(self, grid)
