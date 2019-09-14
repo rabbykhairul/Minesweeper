@@ -101,6 +101,12 @@ class Board
         tile.flag
     end
 
+    def unflag_tile(position)
+        row, col = position
+        tile = grid[row][col]
+        tile.unflag
+    end
+
     def opened_all_bomb_free_tiles?
         opened_tiles_count == 71
     end
