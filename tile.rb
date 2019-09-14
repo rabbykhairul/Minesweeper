@@ -3,6 +3,14 @@ class Tile
         row.between?(0,8) && col.between?(0,8)
     end
 
+    def self.get_tile_position(tile, grid)
+        grid.each_with_index do |grid_row, row_index|
+            grid_row.each_with_index do |current_grid_tile, col_index|
+                return [ row_index, col_index ] if tile == current_grid_tile
+            end
+        end
+    end
+
     attr_reader :bomb
     attr_accessor :visible, :flagged, :val
 
