@@ -98,4 +98,9 @@ class Tile
         fringe_count = Tile.count_adjacent_bombs(self, grid)
         self.val = fringe_count.to_s
     end
+
+    def reveal_all_adjacent_neighbors(grid)
+        neighbor_tiles = Tile.get_adjacent_tiles(self, grid)
+        neighbor_tiles.each { |neighbor_tile| neighbor_tile.reveal }
+    end
 end
