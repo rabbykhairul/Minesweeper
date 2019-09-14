@@ -17,4 +17,10 @@ class Player
         print "Enter tile position (e.g: r2,3): "
         receive_user_input_and_process_it
     end
+
+    def receive_user_input_and_process_it
+        input_command = gets.chomp
+        @move_wish = input_command[0].downcase
+        @move_position = extract_position_value(input_command[1..-1])
+    end
 end
